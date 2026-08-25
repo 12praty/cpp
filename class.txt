@@ -1,0 +1,21 @@
+TOPIC 1: From Struct to Class
+==============================
+==>why:The real difference is a mindset: classes are built 
+        around hiding data and controlling access to it.
+
+==>what:The only Technical Difference between struct and class.
+					struct	class
+==>defaultaccess	public	private
+
+==>struct → "this is just a bag of data" (like Point)
+==>class → "this is a controlled object — you don't get to touch the internals 
+			directly, you go through defined functions"
+
+Constructor
+----------- 
+A constructor is a special member function that:
+  -Has the same name as the class
+  -Has no return type (not even void)
+  -Runs automatically every time an object is created
+
+ 
