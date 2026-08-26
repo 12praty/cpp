@@ -10,7 +10,7 @@ public:
 	BankAccount (double startingBalance){
 		Balance=startingBalance;
 	}
-	void deposite(double amount){
+	void deposit(double amount){
 		Balance += amount;
 	}
 	void accountBalance(){
@@ -18,11 +18,29 @@ public:
 	}
 };
 
+
+// destructor
+class Logger{
+	public:
+		Logger(){
+			cout<<"Logger Created"<<endl;
+		}
+		~Logger(){
+			cout<<"Logger Destroyed"<<endl;
+		}
+};
+
 int main(){
 	BankAccount B;
 	B.accountBalance();
-	B.deposite(500);
+	B.deposit(500);
 	B.accountBalance();
-	B.deposite(500);
+	B.deposit(500);
 	B.accountBalance();
+	cout<<"start"<<endl;
+	{
+	Logger L;
+	cout<<"Using Logger"<<endl;
+	}
+	cout<<"end"<<endl;
 }
