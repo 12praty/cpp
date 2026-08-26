@@ -38,3 +38,12 @@ RAII
    ->Acquire the resource (allocate memory, open a file, lock a mutex) in the constructor.
    ->Release it (free memory, close the file, unlock) in the destructor.
 
+Copy concept
+--------------
+==>Default copy = copies the pointer itself (an address), not the data it points to → two 
+    objects, one shared memory location
+==>When both objects get destroyed, both destructors run delete on the same address → 
+    double-free → undefined behavior
+==>The fix: write your own copy constructor that allocates new, separate memory, and copies 
+    the values across → two objects, two independent memory locations → each destructor safely frees its own memory
+
