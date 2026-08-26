@@ -18,4 +18,23 @@ A constructor is a special member function that:
   -Has no return type (not even void)
   -Runs automatically every time an object is created
 
- 
+Pointer
+--------
+when we did Point, I mentioned member functions secretly get a hidden pointer to "which object called me." Now that you've seen constructors, let's make that explicit — because it solves a real, common problem: naming collisions between parameters and member variables.
+
+RAII
+-----
+==>Manage memory manually
+==>Probleam
+    void doWork(){
+      int* data=new int[1000]
+      if(somethingWent wrong Return){
+        return
+      }
+      delete[] data
+    }
+==>in this case because we return early we never get to delete the data.
+==>Rag is to tie a resource to  lifetime to object lifetime
+   ->Acquire the resource (allocate memory, open a file, lock a mutex) in the constructor.
+   ->Release it (free memory, close the file, unlock) in the destructor.
+
