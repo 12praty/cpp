@@ -1,0 +1,8 @@
+Inheretance
+============
+why:Imagine you're modeling shapes in a game: Circle, Square, Triangle. They're 
+	all different, but they share things in common — every shape has an area, a color, a position. Without inheritance, you'd duplicate that shared stuff in every single class. Inheritance lets you write the shared parts once, in a base class, and have other classes build on top of it.
+
+what:Inheritance lets one class (the derived class) reuse and extend the data/
+	 behavior of another class (the base class). The relationship is called "is-a" — a Circle is a Shape.
+
