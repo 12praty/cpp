@@ -1,8 +1,297 @@
-Inheretance
+OOP in C++
+
 ============
-why:Imagine you're modeling shapes in a game: Circle, Square, Triangle. They're 
-	all different, but they share things in common — every shape has an area, a color, a position. Without inheritance, you'd duplicate that shared stuff in every single class. Inheritance lets you write the shared parts once, in a base class, and have other classes build on top of it.
 
-what:Inheritance lets one class (the derived class) reuse and extend the data/
-	 behavior of another class (the base class). The relationship is called "is-a" — a Circle is a Shape.
+1. Encapsulation
 
+===================
+
+why:
+
+Imagine you have a bank account. You don't want anyone to directly change your balance:
+
+
+
+balance = -100000
+
+Instead, you want the class to control how the data is accessed or changed.
+
+
+
+Encapsulation keeps the data and functions together inside a class and controls access to the data.
+
+what:
+
+Encapsulation means hiding/protecting data by controlling how it can be accessed or modified.
+
+
+
+Usually, data is made private, and we use functions to access it.
+
+Getter:
+
+A getter is a function used to read/access private data.
+
+
+
+Getter → Read data
+
+Setter:
+
+A setter is a function used to change/modify private data.
+
+
+
+Setter → Change data
+
+The setter can also check whether the new value is valid before changing the data.
+
+2. Abstraction
+
+===============
+
+why:
+
+Imagine you're driving a car.
+
+
+
+You use:
+
+
+
+start()
+brake()
+accelerate()
+
+But you don't need to know the complicated internal process of:
+
+
+
+Engine
+Fuel injection
+Ignition
+Transmission
+
+You only need to know what the car can do, not how it internally does it.
+
+what:
+
+Abstraction means hiding implementation/complexity and showing only the necessary functionality.
+
+
+
+In simple words:
+
+
+
+WHAT to do → Exposed
+HOW it works → Hidden
+
+Example:
+
+
+
+car.start()
+
+You know what it does, but you don't need to know how the engine starts internally.
+
+3. Inheritance
+
+================
+
+why:
+
+Imagine you're modeling shapes in a game:
+
+
+
+Circle
+Square
+Triangle
+
+All of them have common things:
+
+
+
+color
+position
+area
+
+Without inheritance, you would have to duplicate these common things in every class.
+
+
+
+Inheritance lets you write the shared parts once in a base class and let other classes reuse and extend them.
+
+what:
+
+Inheritance lets one class (derived/child class) reuse and extend the data and behavior of another class (base/parent class).
+
+
+
+The relationship is called "is-a".
+
+
+
+Circle is a Shape
+Square is a Shape
+Dog is an Animal
+Car is a Vehicle
+
+Important:
+
+A derived class cannot directly access private members of the base class.
+
+
+
+It can directly access the base class's accessible public and protected members.
+
+4. Polymorphism
+
+================
+
+why:
+
+Suppose every vehicle has a:
+
+
+
+start()
+
+But different vehicles start differently:
+
+
+
+Car  → starts using engine/key
+Bike → starts using button
+
+We want the same function/interface but different behavior depending on the object.
+
+what:
+
+Polymorphism means "one interface/function, many forms of behavior."
+
+
+
+There are two common types:
+
+Compile-time Polymorphism
+
+The decision is made during compilation.
+
+
+
+Example:
+
+
+
+Function Overloading
+
+
+
+Same function name
+        +
+Different parameters
+
+For example:
+
+
+
+add(int, int)
+add(int, int, int)
+add(double, double)
+
+C++ decides which function to call based on the parameters.
+
+Runtime Polymorphism
+
+The decision is made while the program is running.
+
+
+
+Usually achieved through:
+
+
+
+Inheritance
++
+Function Overriding
++
+virtual function
+
+Example concept:
+
+
+
+Vehicle
+   |
+   ├── Car  → start() → Car behavior
+   |
+   └── Bike → start() → Bike behavior
+
+The same start() interface produces different behavior depending on the actual object.
+
+Getter vs Setter
+
+===================
+
+
+
+Getter
+→ Used to READ private data
+
+Setter
+→ Used to CHANGE private data
+
+Both are commonly used with encapsulation.
+
+Final Revision
+
+================
+
+
+
+ENCAPSULATION
+→ Protect/hide data
+→ Control access
+→ Getter = read
+→ Setter = change
+
+
+ABSTRACTION
+→ Hide complexity
+→ Show only necessary functionality
+→ Focus on WHAT, not HOW
+
+
+INHERITANCE
+→ Reuse and extend another class
+→ "IS-A" relationship
+→ Circle IS-A Shape
+
+
+POLYMORPHISM
+→ Same interface/function
+→ Different behavior
+
+→ Compile-time:
+   Function Overloading
+
+→ Runtime:
+   Function Overriding + virtual
+
+One-line interview definitions
+
+
+
+Encapsulation  → Protect data by controlling access to it.
+
+Abstraction    → Hide implementation details and show only
+                  necessary functionality.
+
+Inheritance    → Allow a derived class to reuse and extend
+                  a base class.
+
+Polymorphism   → Allow the same interface to have different
+                  behaviors.
