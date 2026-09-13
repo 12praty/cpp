@@ -6,6 +6,8 @@
 // Instead of creating a new sequence function, the sequence function 
 // is used here. The difference is that sequence does not create new, 
 // only allocates new and just gives ownership to the next. 
+// &   → "I want to use your data."
+// &&  → "I can take your resources."
 // =========================================================
 #include<iostream>
 #include<utility>
