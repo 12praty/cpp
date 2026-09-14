@@ -25,6 +25,9 @@ Rvalue
 
 ==>Think:Rvalue = "I'm using this value temporarily."
 
+Move and Copy
+==================
+
 Copy
 ----
 ==>Definition:Copying means creating a new, independent object containing the same 
@@ -52,3 +55,77 @@ Move
      a → moved-from state
      b → "Hello"
 ==>Think:Move = "Transfer the resources instead of making a copy."
+
+
+Wrapper Function
+=================
+Wrapper Function
+----------------
+==>Definition:A wrapper is a middleman function that calls another function.
+==>example:
+   void target(int x) {
+    cout << x;
+   }
+
+   void wrapper(int x) {
+    target(x);
+   }
+==>Flow:
+
+    main()
+     ↓
+  wrapper()    ← middleman
+     ↓
+  target()     ← actual work
+==>Remember:Wrapper = middleman that calls another function.
+
+T&& / Forwarding Reference
+--------------------------
+  template<typename T>
+  void wrapper(T&& arg) {
+      // target(std::forward<T>(arg));
+  }
+
+==>Definition:When T is deduced in a template, T&& can accept both lvalues and 
+              rvalues.
+==>Examples:
+
+    int x = 10;
+
+    wrapper(x);     // lvalue
+    wrapper(10);    // rvalue
+
+    C++ automatically deduces T.
+
+    wrapper(x)  → T = int&
+    wrapper(10) → T = int
+
+==>Remember:T&& = accept lvalue or rvalue.
+
+std::forward<T>(arg)
+--------------------
+==>Definition:std::forward<T>(arg) passes the argument to the next function while 
+              preserving whether it originally came as an lvalue or rvalue.
+==>lvalue:       
+          lvalue
+            ↓
+          wrapper
+            ↓
+          forward
+            ↓
+          lvalue
+            ↓
+          target
+
+==>rvalue:
+          rvalue
+            ↓
+          wrapper
+            ↓
+          forward
+            ↓
+          rvalue
+            ↓
+          target
+          
+==>Remember:std::forward<T>() = pass it onward in its original form
