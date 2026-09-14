@@ -1,0 +1,54 @@
+Lvalue and Rvalue
+==================
+Lvalue
+-------
+==>Definition:An lvalue is an object/expression that represents an object with a 
+              stable identity — usually something you can refer to again using 
+              name.
+==>example:
+	int x = 10;
+
+    cout << x;  // use x
+    x = 20;     // use x again
+here x is an lvalue.
+==>Think:Lvalue = "I have an object that I can refer to again."
+
+Rvalue
+-------
+==>Definition:An rvalue is generally a temporary value/object that is used as a 
+              result or during an operation and doesn't have the same persistent identity as a named variable.
+==>example:
+   ->int x = 10;// lvalue
+     int y = x + 5; // rvalue
+   
+   ->foo(10);//10 is an rvalue.
+
+==>Think:Rvalue = "I'm using this value temporarily."
+
+Copy
+----
+==>Definition:Copying means creating a new, independent object containing the same 
+              value/data as the original object.
+==>Example
+   ->int x = 10;
+     int y = x;
+     They are two separate objects{x=10 and y=10}.
+==>Think:Copy = "Make another object with the same data."
+
+Move
+-----
+==>Definition:Moving means transferring the resources/data that an object owns to 
+              another object instead of making a full copy.
+
+==>Example
+   ->std::string a = "Hello";
+     std::string b = std::move(a);
+
+==>Conceptually:
+   ->Before:
+     a → "Hello"
+     b → nothing
+   ->After move:
+     a → moved-from state
+     b → "Hello"
+==>Think:Move = "Transfer the resources instead of making a copy."
