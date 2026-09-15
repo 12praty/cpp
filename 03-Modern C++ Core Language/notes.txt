@@ -1,3 +1,5 @@
+Topic 1:-
+###########
 Lvalue and Rvalue
 ==================
 Lvalue
@@ -56,6 +58,8 @@ Move
      b → "Hello"
 ==>Think:Move = "Transfer the resources instead of making a copy."
 
+Topic 2:-
+##########
 
 Wrapper Function
 =================
@@ -129,3 +133,46 @@ std::forward<T>(arg)
           target
           
 ==>Remember:std::forward<T>() = pass it onward in its original form
+
+Topic 3:-
+###########
+
+Rule of three
+=============
+==>design your class so it doesn't manage any raw resources directly at all —
+   instead, compose it entirely out of types that already manage their own resources correctly (std::string, std::vector, std::unique_ptr, etc.). If you do this, the compiler-generated defaults for all five special member functions are already correct, and you don't write any of them yourself.
+==>Don't make your class responsible for managing raw resources if an existing 
+   RAII type can manage them for you.
+==>IntArrayModern
+      │
+      ▼
+ std::vector<int>
+      │
+      ▼
+ manages heap memory
+      │
+      ├── allocation
+      ├── deallocation
+      ├── copying
+      └── moving
+
+
+==>Raw resource
+      ↓
+  You manually manage it
+      ↓
+  Rule of Five
+      ↓
+  write special members yourself
+
+==>RAII/resource-managing type
+  (std::vector, std::string, unique_ptr...)
+      ↓
+  It manages the resource
+      ↓
+  Your class contains that type
+      ↓
+  Rule of Zero
+      ↓
+  compiler-generated special members are enough
+

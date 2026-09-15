@@ -5,8 +5,8 @@ using namespace std;
 void target(int x){
 	cout<<x<<endl;
 }
-// simple Wrapper functon
-void wrapperS(int x){
+// simple Wrapper function — renamed to avoid conflict with template overload below
+void wrapperSimple(int x){
 	target(x);
 }
 // perfect wrapper function
@@ -31,7 +31,7 @@ void wrapperS(T&& arg) {
 
 int main(){
 	int x=10;
-	wrapperS(x);
+	wrapperSimple(x);
 	wrapper(x);
 	string name = "Pratyush";
 
