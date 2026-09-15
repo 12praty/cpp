@@ -1,0 +1,30 @@
+# C++ compiled files
+*.o
+*.out
+*.exe
+
+# Executables without extensions
+a.out
+class
+struct
+
+# Build directories
+build/
+bin/
+
+# macOS
+.DS_Store# C++ compiled files
+*.o
+*.out
+*.exe
+
+# Executables without extensions
+a.out
+
+# Build directories
+build/
+bin/
+
+# macOS
+.DS_Store
+
