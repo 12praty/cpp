@@ -1,0 +1,7 @@
+[
+  {
+    "label": "Run C++",
+    "command": "clang++ \"$ZED_FILE\" -std=c++20 -o /tmp/zed_cpp && /tmp/zed_cpp",
+    "use_new_terminal": true
+  }
+]
