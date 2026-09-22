@@ -21,14 +21,22 @@ int main(){
 		cout<<"not found";
 	}
 	cout<<endl;
+	if(result.has_value()){
+		cout<<*result<<endl;
+	}
+
+	cout<<endl;
 	//Varient means:Holds one of the predefined types (int or string).
 	variant<int,string> v=10;
 	cout<<get<int>(v)<<endl;
 	v="hello";
 	cout<<get<string>(v)<<endl;
     
-  
-
+   //any means:Can hold almost any type, and you check/cast the type at runtime.
+	any data =10;
+	cout<<any_cast<int>(data)<<endl;
+    data=string("hello");
+    cout<<any_cast<string>(data)<<endl;
 
 
 	return 0;
