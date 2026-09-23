@@ -1,0 +1,60 @@
+# Queue Data Structure
+
+## What is a Queue?
+A queue is a linear data structure that follows the FIFO (First In First Out) principle - the first element added is the first one to be removed, similar to a real-life queue or line at a billing counter.
+
+## Why Queues Exist
+Some problems require preserving the order of elements. A stack (LIFO - Last In First Out) would serve the most recently added element first, which is unfair and incorrect for many real-world scenarios where fairness and chronological order matter.
+
+## Real-World Industry Applications
+
+### Operating System Process Scheduling
+- CPU serves processes in queue order using algorithms like Round Robin scheduling
+- Processes wait in the ready queue until their turn for CPU execution
+
+### Message Queues
+- Systems like Kafka, RabbitMQ, and Amazon SQS use queues for service communication
+- Services push messages to queues and other services pop/consume them in order
+- Enables decoupling, buffering, and asynchronous processing between distributed systems
+
+### Printer Spooling
+- Print jobs are queued and printed in the order they were submitted
+- Prevents conflicts when multiple users send print jobs simultaneously
+
+### Breadth-First Search (BFS)
+- Graph/tree traversal algorithm that explores nodes level-by-level
+- Uses a queue internally to keep track of nodes to visit next
+- Ensures all nodes at depth d are visited before any nodes at depth d+1
+
+### Web Servers
+- Under high load, incoming requests are placed in a request queue
+- Server processes requests in FIFO order to ensure fair handling
+- Prevents starvation and maintains predictable response times
+
+## Key Operations
+- **Enqueue**: Add an element to the rear/tail of the queue
+- **Dequeue**: Remove and return the element from the front/head of the queue
+- **Peek/Front**: View the front element without removing it
+- **IsEmpty**: Check if the queue has no elements
+- **Size**: Get the number of elements in the queue
+
+## Implementation Approaches
+1. **Array-based Queue**: Fixed size, efficient but may need resizing
+2. **Linked List-based Queue**: Dynamic size, no wasted space
+3. **Circular Array**: Efficient use of fixed-size array space
+4. **Two Stacks**: Implement queue using two stacks (amortized O(1) operations)
+
+## Time Complexity
+- Enqueue: O(1)
+- Dequeue: O(1)
+- Peek: O(1)
+- IsEmpty: O(1)
+- Size: O(1)
+
+## When to Use Queues
+- When order of processing matters (first come, first served)
+- In producer-consumer scenarios
+- For breadth-first traversal of graphs/trees
+- In scheduling algorithms
+- When handling asynchronous events or messages
+- For buffering data between processes with different speeds
